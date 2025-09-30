@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/jesussuarz/cyberpanel-whmcs/blob/22018ba84b0de7a985023fa52d7204252b44551d/modules/servers/cyberpanel/img/logo_cyberpanel.png" />
+</p>
+
 # CyberPanel WHMCS Module
 
 This WHMCS module allows you to integrate CyberPanel with WHMCS to sell and automate hosting services. Using the module, you can provision CyberPanel accounts, manage customer websites, and give clients convenient access to their control panel.
@@ -7,9 +11,14 @@ The distribution consists of two parts:
 1. Server Module (modules/servers/cyberpanel/) → Handles account provisioning and automation.
 2. Addon Module (modules/addons/cyberpanel_extra/) → Creates and manages the extra database table for storing SSH credentials (user, password, port).
 
+
+
 ### Requirements
 - A Dedicated Server Product in WHMCS must be created and configured to use the CyberPanel module.
 - You must also configure a Server in WHMCS (System Settings → Servers) and assign it to the product.
+<p align="center">
+  <img src="https://github.com/jesussuarz/cyberpanel-whmcs/blob/22018ba84b0de7a985023fa52d7204252b44551d/modules/servers/cyberpanel/img/3.png" />
+</p>
 - Important: This module does not install or configure CyberPanel on the server automatically. CyberPanel must already be installed on the dedicated server.
 - The admin user in CyberPanel must have API Access enabled:
 
@@ -63,6 +72,9 @@ path_to_whmcs/modules/addons/cyberpanel_extra
 - On activation, it will create/update the table mod_cyberpanel_extra.
 
 ### Module Functions
+<p align="center">
+  <img src="https://github.com/jesussuarz/cyberpanel-whmcs/blob/22018ba84b0de7a985023fa52d7204252b44551d/modules/servers/cyberpanel/img/2.png" />
+</p>
 
 The CyberPanel WHMCS module provides the following functionality:
 - Provisioning:
@@ -74,7 +86,10 @@ The CyberPanel WHMCS module provides the following functionality:
 - Convenience Features:
   - Auto-login to CyberPanel (Admin or Customer)
   - Store and display SSH credentials (host, port, username, password) to clients inside WHMCS
- 
+ <p align="center">
+  <img src="https://github.com/jesussuarz/cyberpanel-whmcs/blob/22018ba84b0de7a985023fa52d7204252b44551d/modules/servers/cyberpanel/img/1.png" />
+</p>
+
 ### Directory Structure:
 ```
 modules
