@@ -8,7 +8,7 @@ use WHMCS\Database\Capsule;
 function cyberpanel_extra_config() {
     return [
         'name' => 'CyberPanel Extra',
-        'description' => 'Addon para gestionar tabla extra de credenciales SSH en CyberPanel.',
+        'description' => 'Addon to manage an extra table for SSH credentials in CyberPanel.',
         'author' => 'Soporte Server',
         'language' => 'english',
         'version' => '1.1',
@@ -27,7 +27,7 @@ function cyberpanel_extra_activate() {
                 $table->unique('serviceid');
             });
         } else {
-            // Si ya existe, nos aseguramos de que la columna ssh_port esté presente
+            // If it already exists, ensure the ssh_port column is present
             if (!Capsule::schema()->hasColumn('mod_cyberpanel_extra', 'ssh_port')) {
                 Capsule::schema()->table('mod_cyberpanel_extra', function ($table) {
                     $table->integer('ssh_port')->default(22)->after('ssh_pass');
@@ -37,33 +37,33 @@ function cyberpanel_extra_activate() {
 
         return [
             'status' => 'success',
-            'description' => 'Tabla mod_cyberpanel_extra creada/actualizada exitosamente.',
+            'description' => 'Table mod_cyberpanel_extra created/updated successfully.',
         ];
     } catch (\Throwable $e) {
         return [
             'status' => 'error',
-            'description' => 'Error al crear/actualizar la tabla: ' . $e->getMessage(),
+            'description' => 'Error creating/updating the table: ' . $e->getMessage(),
         ];
     }
 }
 
 function cyberpanel_extra_deactivate() {
     try {
-        // Si quieres eliminar la tabla al desactivar, descomenta esta línea:
-        // Capsule::schema()->dropIfExists('mod_cyberpanel_extra');
+        // If you want to drop the table on deactivation, uncomment this line:
+        Capsule::schema()->dropIfExists('mod_cyberpanel_extra');
 
         return [
             'status' => 'success',
-            'description' => 'Addon desactivado correctamente.',
+            'description' => 'Addon deactivated successfully.',
         ];
     } catch (\Throwable $e) {
         return [
             'status' => 'error',
-            'description' => 'Error al desactivar: ' . $e->getMessage(),
+            'description' => 'Error deactivating addon: ' . $e->getMessage(),
         ];
     }
 }
 
 function cyberpanel_extra_output($vars) {
-    echo "<p>CyberPanel Extra está activo. La tabla <code>mod_cyberpanel_extra</code> está disponible para el módulo de servidor.</p>";
+    echo "<p>CyberPanel Extra is active. The table <code>mod_cyberpanel_extra</code> is available for the server module.</p>";
 }
